@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
+import { GithubService } from './services/github.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,11 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
     ProfilesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
