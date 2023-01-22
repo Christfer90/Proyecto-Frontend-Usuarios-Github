@@ -28,11 +28,16 @@ export class ProfilesComponent implements OnInit {
     this.userSuscription.unsubscribe()
   }
 
+  /**
+   * Se implementa funcionalidad que permitirá el consumo de la api.
+   * Se realiza subscrición a evento y observables
+   * Se establece rango de caracteres en la busqueda y tiempo de espera
+   */
+
   getUser() {
     this.userSuscription = fromEvent<Event>(this.userSearchInput.nativeElement, 'keyup').pipe(debounceTime(1000),
       map((event: Event) => {
         const searchTerm = (event.target as HTMLInputElement).value;
-        console.log(searchTerm);
         return searchTerm
     }),
     filter((searchTerm: string) => searchTerm.length > 3),
