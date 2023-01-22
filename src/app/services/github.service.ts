@@ -11,7 +11,7 @@ export class GithubService {
   constructor(private http: HttpClient) { }
 
   getUser(name: string): Observable<User>{
-    const api_url = `https://api.gitguh.com/users/${name}`;
+    const api_url = `https://api.github.com/users/${name}`;
     return this.http.get<User>(api_url);
   }
 

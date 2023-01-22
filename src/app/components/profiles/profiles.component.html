@@ -1,1 +1,22 @@
-<p>profiles works!</p>
+<div class="container">
+    <div class="finder">
+        <h1>Find Github User</h1>    
+        <div class="row">
+            <div class="pseudo-search mt-4">
+                <input type="text" #userSearchInput >
+                <button>
+                    <i class="fa-brands fa-github"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>         
+            </div>        
+        </div>
+    </div>
+    <div class="center mt-5">
+        <app-user *ngIf="user;else empty" [user]="user"></app-user>
+    </div>
+    <ng-template #empty class="empty">
+        <h3>No se encontraron peliculas</h3>
+    </ng-template>
+</div>
