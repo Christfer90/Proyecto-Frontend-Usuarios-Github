@@ -14,9 +14,6 @@
         </div>
     </div>
     <div class="center mt-5">
-        <app-user *ngIf="user;else empty" [user]="user"></app-user>
+        <app-user *ngIf="user" [user]="user"></app-user>
     </div>
-    <ng-template #empty class="empty">
-        <h3>No se encontraron peliculas</h3>
-    </ng-template>
 </div>
