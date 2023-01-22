@@ -152,6 +152,10 @@ button, i {
 	color: rgb(209, 193, 193);
 }
 
+.card .additional .blog.center a{
+	color: rgb(209, 193, 193);
+}
+
 .card.green .additional .coords {
 	color: #325C46;
 }

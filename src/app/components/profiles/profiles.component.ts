@@ -29,14 +29,13 @@ export class ProfilesComponent implements OnInit {
   }
 
   getUser() {
-    this.userSuscription = fromEvent<Event>(this.userSearchInput.nativeElement, 'keyup').pipe(
+    this.userSuscription = fromEvent<Event>(this.userSearchInput.nativeElement, 'keyup').pipe(debounceTime(1000),
       map((event: Event) => {
         const searchTerm = (event.target as HTMLInputElement).value;
         console.log(searchTerm);
         return searchTerm
     }),
     filter((searchTerm: string) => searchTerm.length > 3),
-    debounceTime(500),
     distinct(),
     switchMap((searchTerm: string) => this.githubService.getUser(searchTerm).pipe(
       catchError(e => {
@@ -53,7 +52,6 @@ export class ProfilesComponent implements OnInit {
     ) )
       ).subscribe((user) => {
         this.user = user;
-        return user;
       }
     )
   }

@@ -1,19 +1,14 @@
 <div class="card">
+    <h1 class="general">Cosa</h1>
     <div class="additional">
         <div class="more-info mt-4">
             <h1>{{user.name}}</h1>
-            <a class="coords">
-                <i class="fa-solid fa-location-dot"></i>
-                <span class="m-2">{{user.location}}</span>
-            </a>
-            <a class="coords">
-                <i class="fa-brands fa-twitter"></i>
-                <span>{{user.twitter_username}}</span>
-            </a>
-            <a class="center">
-                <i class="fa-solid fa-blog"></i>
-                <span class="m-2">{{user.blog}}</span>
-            </a>
+            <div class="blog">
+                <a *ngIf="user.blog" class="center">
+                    <i class="fa-solid fa-blog"></i>
+                    <span class="m-2">{{user.blog}}</span>
+                </a>
+            </div>
             <div class="stats">
                 <div>
                     <p class="m-0">Repos</p>
@@ -31,6 +26,14 @@
                     <h3>{{user.following}}</h3>
                 </div>
             </div>
+            <a *ngIf="user.location" class="coords">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="m-2">{{user.location}}</span>
+            </a>
+            <a *ngIf="user.twitter_username" class="coords">
+                <i class="fa-brands fa-twitter"></i>
+                <span>{{user.twitter_username}}</span>
+            </a>
         </div>
         <div class="user-card">
             <div class="level center">
